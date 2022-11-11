@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section Styles{
+    <style>
+    </style>
+}
+    <div class="py-6">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <table id="example" class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>@_localizer["Account"]</th>
+                            <th>@_localizer["Email"]</th>
+                            <th>@_localizer["Name"]</th>
+                            <th>@_localizer["Birthday"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A001</td>
+                            <td>A001@gmail.com</td>
+                            <td>001</td>
+                            <td>1970-12-31</td>
+                        </tr>
+                        <tr>
+                            <td>A002</td>
+                            <td>A002@gmail.com</td>
+                            <td>002</td>
+                            <td>1980-07-31</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts{
+    <script>
+        $(async () => {
+            let langUrl = "/lib/DataTables/Languages/@(_SiteService.GetCurrentCulture()).json";
+
+            $('#example').DataTable({
+                "language": {
+                    "url": langUrl,
+                },
+            });
+        });
+    </script>
+}
